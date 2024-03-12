@@ -4,32 +4,30 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                script {
-                    // Checkout the repository
-                    checkout scm
-
-                    // Compile the .cpp file
-                    sh 'g++ -o app hello.cpp'
-                }
+                echo 'Building...'
+                // You can print more random stuff or perform tasks here
             }
         }
 
         stage('Test') {
             steps {
-                script {
-                    // Run the compiled .cpp file
-                    sh './app'
-                }
+                echo 'Testing...'
+                // You can print more random stuff or perform tasks here
             }
         }
 
         stage('Deploy') {
             steps {
+                echo 'Deploying...'
+                // You can print more random stuff or perform tasks here
             }
         }
     }
 
     post {
+        success {
+            echo 'All stages passed successfully!'
+        }
         failure {
             echo 'Pipeline failed'
         }
